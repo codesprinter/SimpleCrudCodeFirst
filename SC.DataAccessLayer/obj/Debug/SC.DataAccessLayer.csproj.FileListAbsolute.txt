@@ -1,0 +1,12 @@
+D:\GitRepo\SC.DataAccessLayer\bin\Debug\SC.DataAccessLayer.dll.config
+D:\GitRepo\SC.DataAccessLayer\bin\Debug\SC.DataAccessLayer.dll
+D:\GitRepo\SC.DataAccessLayer\bin\Debug\SC.DataAccessLayer.pdb
+D:\GitRepo\SC.DataAccessLayer\bin\Debug\EntityFramework.dll
+D:\GitRepo\SC.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\GitRepo\SC.DataAccessLayer\bin\Debug\SC.DomainLayer.dll
+D:\GitRepo\SC.DataAccessLayer\bin\Debug\SC.DomainLayer.pdb
+D:\GitRepo\SC.DataAccessLayer\bin\Debug\EntityFramework.xml
+D:\GitRepo\SC.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\GitRepo\SC.DataAccessLayer\obj\Debug\SC.DataAccessLayer.csprojResolveAssemblyReference.cache
+D:\GitRepo\SC.DataAccessLayer\obj\Debug\SC.DataAccessLayer.dll
+D:\GitRepo\SC.DataAccessLayer\obj\Debug\SC.DataAccessLayer.pdb

@@ -1,0 +1,9 @@
+D:\GitRepo\SC.DomainLayer\bin\Debug\SC.DomainLayer.dll.config
+D:\GitRepo\SC.DomainLayer\bin\Debug\SC.DomainLayer.dll
+D:\GitRepo\SC.DomainLayer\bin\Debug\SC.DomainLayer.pdb
+D:\GitRepo\SC.DomainLayer\bin\Debug\EntityFramework.dll
+D:\GitRepo\SC.DomainLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\GitRepo\SC.DomainLayer\bin\Debug\EntityFramework.xml
+D:\GitRepo\SC.DomainLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\GitRepo\SC.DomainLayer\obj\Debug\SC.DomainLayer.dll
+D:\GitRepo\SC.DomainLayer\obj\Debug\SC.DomainLayer.pdb

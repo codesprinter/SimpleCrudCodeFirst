@@ -1,0 +1,60 @@
+﻿@model SC.ViewModel.CourseViewModel
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor( p => p.CourseID)
+    @Html.AntiForgeryToken()
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">@Model.FormTitle</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CourseCode, new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.CourseCode, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CourseCode)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CourseTitle, new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.CourseTitle, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CourseTitle)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CourseDescription, new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.CourseDescription, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CourseDescription)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Credit, new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.Credit, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Credit)
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-8">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

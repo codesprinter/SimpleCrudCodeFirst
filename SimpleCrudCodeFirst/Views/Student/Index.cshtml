@@ -1,0 +1,121 @@
+﻿@model IEnumerable<SC.ViewModel.StudentViewModel>
+
+@{
+    ViewBag.Title = "Student List";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Add Student", "EditStudent", "Student",
+        new {code = 0},   
+        new { id = "btnCreate", @class = "btn btn-primary modal-link" })
+   
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartmentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dob)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartmentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dob)
+        </td>
+    </tr>
+}
+
+</table>
+
+<div id='modalDiv' class='modal fade in'>
+    <div class="modal-dialog">
+        <div id='modalContent'></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+
+        $.ajaxSetup({ cache: false });
+        /*
+        $('#btnCreate').click(function () {
+            $('#modalContent').load(this.href, function () {
+                $('#modalDiv').modal({
+                    backdrop: 'static',
+                    keyboard: true
+                }, 'show');
+                bindForm(this);
+            });
+            return false;
+        });
+        */
+        // See how to bind all action links with class name - Modal Link to dialogs.
+        // http://stackoverflow.com/a/10390622/351708
+        // Above example shows how to use individual links
+        
+        $('.modal-link').click(function () {
+            $('#modalContent').load(this.href, function () {
+                $('#modalDiv').modal({
+                    /*backdrop: 'static', */
+                    keyboard: true
+                }, 'show');
+                bindForm(this);
+            });
+            return false;
+        });
+    });
+
+    function bindForm(dialog) {
+        $('form', dialog).submit(function () {
+            $.ajax({
+                url: this.action,
+                type: this.method,
+                data: $(this).serialize(),
+                success: function (result) {
+                    if (result.success) {
+                        $('#modalDiv').modal('show');
+                        // Refresh:
+                        //location.reload();
+                    } else {
+                        $('#modalContent').html(result);
+                        bindForm();
+                    }
+                }
+            });
+            return false;
+        });
+    }
+</script>
+

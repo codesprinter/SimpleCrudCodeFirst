@@ -1,0 +1,29 @@
+﻿@model SC.ViewModel.CourseListViewModel
+
+@{
+    ViewBag.Title = Model.FormTitle;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Add Course", "EditCourse", "Course",
+        new { code = 0 },
+        new { id = "btnCreate", @class = "btn btn-primary modal-link" })
+</p>
+
+<div id="messageContainer">
+</div>
+
+<div id="courseList">
+    @Html.Partial("_CourseList", Model.CourseList)
+</div>
+
+<div id='modalDiv' class='modal fade in'>
+    <div class="modal-dialog">
+        <div id='modalContent'></div>
+    </div>
+</div>
+<script src="@Url.Content("~/Scripts/app/modalselector.js")" type="text/javascript"></script>
+
+
