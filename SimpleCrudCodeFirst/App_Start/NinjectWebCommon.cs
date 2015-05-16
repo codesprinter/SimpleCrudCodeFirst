@@ -66,6 +66,7 @@ namespace SimpleCrudCodeFirst
             string contextName = "SCContext";
             kernel.Bind<IStudentService>().To<StudentService>().WithConstructorArgument("contextName", contextName);
             kernel.Bind<ICourseService>().To<CourseService>().WithConstructorArgument("contextName", contextName);
+            kernel.Bind<IDepartmentService>().To<DepartmentService>().WithConstructorArgument("contextName", contextName);
         }        
     }
 }

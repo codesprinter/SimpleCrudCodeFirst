@@ -35,7 +35,7 @@ namespace SC.BussinessLayer
             return courseList;
         }
 
-        public Course GetCourseCodeByCode(string code)
+        public Course GetCourseByCode(string code)
         {
             IGenericDataRepository<Course> courseRepo = _uow.RepositoryFor<Course>();
             var course = courseRepo.GetSingle(p => p.CourseCode.Equals(code));

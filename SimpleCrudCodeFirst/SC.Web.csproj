@@ -188,6 +188,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
@@ -202,6 +203,7 @@
     <Compile Include="ViewModel\CourseListViewModel.cs" />
     <Compile Include="ViewModel\CoursViewModel.cs" />
     <Compile Include="ViewModel\DeleteConfirmationViewModel.cs" />
+    <Compile Include="ViewModel\DeptListViewModel.cs" />
     <Compile Include="ViewModel\DeptViewModel.cs" />
     <Compile Include="ViewModel\EnrollmentViewModel.cs" />
     <Compile Include="ViewModel\MessageViewModel.cs" />
@@ -214,7 +216,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\app\modalselector.js" />
+    <Content Include="Scripts\app\course.js" />
+    <Content Include="Scripts\app\department.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -263,6 +266,9 @@
     <Content Include="Views\Course\_CourseList.cshtml" />
     <Content Include="Views\Shared\_Message.cshtml" />
     <Content Include="Views\Shared\_DeleteConfirmation.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Department\_DepartmentList.cshtml" />
+    <Content Include="Views\Department\_EditDepartment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

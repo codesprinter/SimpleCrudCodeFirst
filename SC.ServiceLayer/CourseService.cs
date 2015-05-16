@@ -49,7 +49,7 @@ namespace SC.ServiceLayer
             using (SCContext context = new SCContext(_contextName)) {
                 IUnitOfWork uow = new UnitOfWork(context);
                 CourseBusiness courseBusiness = new CourseBusiness(uow);
-                var course = courseBusiness.GetCourseCodeByCode(code);
+                var course = courseBusiness.GetCourseByCode(code);
                 return course;
             }
         }

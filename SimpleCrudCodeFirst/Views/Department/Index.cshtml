@@ -1,4 +1,4 @@
-﻿@model SC.ViewModel.CourseListViewModel
+﻿@model SC.ViewModel.DepartmentListViewModel
 
 @{
     ViewBag.Title = Model.FormTitle;
@@ -7,7 +7,7 @@
 <h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Add Course", "EditCourse", "Course",
+    @Html.ActionLink("Add Department", "EditDepartment", "Department",
         new { code = 0 },
         new { id = "btnCreate", @class = "btn btn-primary modal-link" })
 </p>
@@ -16,7 +16,7 @@
 </div>
 
 <div id="courseList">
-    @Html.Partial("_CourseList", Model.CourseList)
+    @Html.Partial("_DepartmentList", Model.DepartmentList)
 </div>
 
 <div id='modalDiv' class='modal fade in'>
@@ -24,6 +24,4 @@
         <div id='modalContent'></div>
     </div>
 </div>
-<script src="@Url.Content("~/Scripts/app/course.js")" type="text/javascript"></script>
-
-
+<script src="@Url.Content("~/Scripts/app/department.js")" type="text/javascript"></script>
