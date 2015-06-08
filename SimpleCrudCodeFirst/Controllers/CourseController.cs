@@ -10,6 +10,7 @@ using SC.Utility;
 
 namespace SimpleCrudCodeFirst.Controllers
 {
+    [Authorize]
     public class CourseController : Controller
     {
         private ICourseService _courseService = null;

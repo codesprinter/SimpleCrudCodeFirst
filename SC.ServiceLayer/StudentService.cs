@@ -12,10 +12,10 @@ namespace SC.ServiceLayer
 {
     public interface IStudentService
     {
-        IList<Student> GetAllStudent();
-        void SaveStudent(Student student);
-        void RemoveStudent(string studentCode);
-        Student GetStudentDetails(string studentCode);
+        List<Student> GetAllStudent();
+        bool SaveStudent(Student student);
+        bool DeleteStudent(long id);
+        Student GetStudentByCode(string code);
     }
     public class StudentService: IStudentService
     {
@@ -25,25 +25,41 @@ namespace SC.ServiceLayer
             _contextName = contextName;
         }
 
-        public IList<Student> GetAllStudent()
+        public List<Student> GetAllStudent()
         {
             using (SCContext context = new SCContext(_contextName)) {
                 IUnitOfWork uow = new UnitOfWork(context);
                 StudentBusiness studentBusiness = new StudentBusiness(uow);
                 var students = studentBusiness.GetAllStudent();
-                return students;
+                return students.ToList();
             }
         }
-        public void SaveStudent(Student student)
-        {}
-        public void RemoveStudent(string studentCode)
-        {}
-        public Student GetStudentDetails(string studentCode)
+        public bool SaveStudent(Student student)
+        {
+            using (SCContext context = new SCContext(_contextName)) {
+                IUnitOfWork uow = new UnitOfWork(context);
+                StudentBusiness studentBusiness = new StudentBusiness(uow);
+                bool saved = studentBusiness.SaveStudent(student);
+                uow.SaveChanges();
+                return saved;
+            }
+        }
+        public bool DeleteStudent(long id)
+        {
+            using (SCContext context = new SCContext(_contextName)) {
+                IUnitOfWork uow = new UnitOfWork(context);
+                StudentBusiness studentBusiness = new StudentBusiness(uow);
+                bool saved = studentBusiness.SaveStudent(new Student { StudentID = id, EntityState = EntityState.Deleted });
+                uow.SaveChanges();
+                return saved;
+            }
+        }
+        public Student GetStudentByCode(string code)
         {
             SCContext context = new SCContext(_contextName);
             IUnitOfWork uow = new UnitOfWork(context);
             IGenericDataRepository<Student> studentRepo = uow.RepositoryFor<Student>();
-            var student = studentRepo.GetSingle(p => p.StudentCode.Equals(studentCode));
+            var student = studentRepo.GetSingle(p => p.StudentCode.Equals(code));
             uow.Dispose();
             return student;
         }

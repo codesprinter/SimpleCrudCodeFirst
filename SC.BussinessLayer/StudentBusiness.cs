@@ -22,5 +22,11 @@ namespace SC.BussinessLayer
             var students = studentRepo.GetAll().ToList();
             return students;
         }
+        public bool SaveStudent(Student student)
+        {
+            IGenericDataRepository<Student> studentRepo = _uow.RepositoryFor<Student>();
+            studentRepo.Add(student);
+            return true;
+        }
     }
 }
